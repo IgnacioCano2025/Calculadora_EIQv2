@@ -35,7 +35,7 @@ export default function App(){
           <div className="text-sm">Normal field EIQ/ha: <span className="font-semibold">{r2(totals.normal).toFixed(2)}</span></div>
           <div className="text-sm">Scenario field EIQ/ha: <span className="font-semibold">{r2(totals.scenario).toFixed(2)}</span></div>
           <div className="text-sm">Change: <span className={totals.change>0?'text-red-600':'text-emerald-700'}>{(totals.change*100).toFixed(1)}%</span></div>
-          <div className="mt-1 text-xs px-2 py-1 inline-block rounded-full bg-slate-100 border">Tier: <span className="font-medium">{tierLabel(totals.scenario) || '—'}</span></div>
+          <div className="mt-1 text-xs px-2 py-1 inline-block rounded-full bg-slate-100 border">Categoría: <span className="font-medium">{tierLabel(totals.scenario) || '—'}</span></div>
           <div><button onClick={exportPDF} className="mt-2 px-3 py-2 rounded-md bg-slate-900 text-white">Generar PDF</button></div>
         </div>
       </header>
