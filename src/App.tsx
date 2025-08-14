@@ -23,22 +23,39 @@ export default function App(){
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-6 space-y-6 text-slate-900">
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img src="/edra-logo.png" className="h-10 w-auto" alt="EDRA"/>
-          <div>
-            <h1 className="text-2xl font-bold">Calculadora EIQ – EDRA</h1>
-            <p className="text-sm text-slate-600">Paridad con Base de datos (solo cálculo) – Catálogo AR.</p>
-          </div>
-        </div>
-        <div className="text-right">
-          <div className="text-sm">Normal field EIQ/ha: <span className="font-semibold">{r2(totals.normal).toFixed(2)}</span></div>
-          <div className="text-sm">Scenario field EIQ/ha: <span className="font-semibold">{r2(totals.scenario).toFixed(2)}</span></div>
-          <div className="text-sm">Change: <span className={totals.change>0?'text-red-600':'text-emerald-700'}>{(totals.change*100).toFixed(1)}%</span></div>
-          <div className="mt-1 text-xs px-2 py-1 inline-block rounded-full bg-slate-100 border">Categoría: <span className="font-medium">{tierLabel(totals.scenario) || '—'}</span></div>
-          <div><button onClick={exportPDF} className="mt-2 px-3 py-2 rounded-md bg-slate-900 text-white">Generar PDF</button></div>
-        </div>
-      </header>
+<header className="flex items-center justify-between">
+  <div className="flex flex-col items-center gap-2">
+    <img src="/edra-logo.png" className="h-10 w-auto" alt="EDRA" />
+    <div className="text-center">
+      <h1 className="text-2xl font-bold">Calculadora EIQ – EDRA</h1>
+      <p className="text-sm text-slate-600">
+        Paridad con Base de datos (solo cálculo) – Catálogo AR.
+      </p>
+    </div>
+  </div>
+  <div className="text-right">
+    <div className="text-sm">
+      Normal field EIQ/ha: <span className="font-semibold">{r2(totals.normal).toFixed(2)}</span>
+    </div>
+    <div className="text-sm">
+      Scenario field EIQ/ha: <span className="font-semibold">{r2(totals.scenario).toFixed(2)}</span>
+    </div>
+    <div className="text-sm">
+      Change:{" "}
+      <span className={totals.change > 0 ? 'text-red-600' : 'text-emerald-700'}>
+        {(totals.change * 100).toFixed(1)}%
+      </span>
+    </div>
+    <div className="mt-1 text-xs px-2 py-1 inline-block rounded-full bg-slate-100 border">
+      Categoría: <span className="font-medium">{tierLabel(totals.scenario) || '—'}</span>
+    </div>
+    <div>
+      <button onClick={exportPDF} className="mt-2 px-3 py-2 rounded-md bg-slate-900 text-white">
+        Generar PDF
+      </button>
+    </div>
+  </div>
+</header>
 
       <div className="glass p-3 md:p-4">
         <div className="grid grid-cols-12 gap-3 text-xs font-medium text-slate-600 px-2">
